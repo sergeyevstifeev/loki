@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · Loki</title>
+        <title>Command line arguments · Loki</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -53,8 +53,10 @@
     
 
     
-    <link rel="next" href="getting-started.html" />
+    <link rel="next" href="command-line-arguments.html" />
     
+    
+    <link rel="prev" href="configuration.html" />
     
 
     </head>
@@ -90,7 +92,7 @@
     
         
         <li class="chapter 
-            active  selected  "
+              "
             data-level="1.1" 
             data-path="./">
 
@@ -144,7 +146,7 @@
     
         
         <li class="chapter 
-              "
+            active  selected  "
             data-level="1.4" 
             data-path="command-line-arguments.html">
 
@@ -159,12 +161,12 @@
 
             
             <ul class="articles">
-                
+                  
                 
     
         
         <li class="chapter 
-               hide "
+              selected  "
             data-level="1.4.1" 
             data-path="command-line-arguments.html">
 
@@ -182,7 +184,7 @@
     
         
         <li class="chapter 
-               hide "
+              selected  "
             data-level="1.4.2" 
             data-path="command-line-arguments.html">
 
@@ -200,7 +202,7 @@
     
         
         <li class="chapter 
-               hide "
+              selected  "
             data-level="1.4.3" 
             data-path="command-line-arguments.html">
 
@@ -243,7 +245,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Command line arguments</a>
     </h1>
 </div>
 
@@ -258,20 +260,138 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><img src="https://user-images.githubusercontent.com/378279/27998811-43b9906e-6515-11e7-835a-6f596506cc46.png" width="300" height="130" class="center" alt="Loki"></p>
-<h1 class="center" id="visual-regression-testing-for-storybook">Visual Regression Testing for Storybook</h1>
-
-<p><img src="https://user-images.githubusercontent.com/378279/28074070-f0052fac-6657-11e7-8a9d-398a12d2d6a8.png" width="672" height="494" class="center" alt=""></p>
-<h2 id="rationale">Rationale</h2>
-<p>There&apos;s a few visual regression tools for the web, but most either cannot be run headless or use phantomjs which is deprecated and a browser nobody is <em>actually</em> using. They usually also require you to maintain fixtures. With react-native it&apos;s now possible to target multiple platforms with a single code base, but there&apos;s no single tool to test all to my knowledge. </p>
-<p>Loki aims to have easy setup, no to low maintenance cost, reproducible tests independent of which OS they are run on, runnable on CI and support all platforms storybook does.</p>
-<h2 id="supported-platforms">Supported platforms</h2>
-<ul>
-<li>Chrome in docker (recommended)</li>
-<li>Local Chrome application</li>
-<li>iOS simulator</li>
-<li>Android emulator</li>
-</ul>
+                                <h1 id="command-line-arguments">Command line arguments</h1>
+<p>If you run loki via <code>yarn</code>, you need to make sure to prepend your argument list with <code>--</code> so that yarn passes them though to loki. You can add <code>./node_modules/.bin</code> to your <code>PATH</code> to be able to run <code>loki</code> directly too. </p>
+<h2 id="loki-test"><code>loki test</code></h2>
+<p>Capture screenshots and compare them against the reference files. </p>
+<pre class="language-"><code>yarn loki test -- --port 9009
+</code></pre><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>--host</code></strong></td>
+<td>Storybook host</td>
+<td><code>localhost</code></td>
+</tr>
+<tr>
+<td><strong><code>--port</code></strong></td>
+<td>Storybook port</td>
+<td><em>None</em></td>
+</tr>
+<tr>
+<td><strong><code>--reactPort</code></strong></td>
+<td>React Storybook port</td>
+<td><code>6006</code></td>
+</tr>
+<tr>
+<td><strong><code>--reactNativePort</code></strong></td>
+<td>React Native Storybook port</td>
+<td><code>7007</code></td>
+</tr>
+<tr>
+<td><strong><code>--reference</code></strong></td>
+<td>Path to screenshot reference folder</td>
+<td><code>./screenshots/reference</code></td>
+</tr>
+<tr>
+<td><strong><code>--output</code></strong></td>
+<td>Path to screenshot output folder</td>
+<td><code>./screenshots/current</code></td>
+</tr>
+<tr>
+<td><strong><code>--difference</code></strong></td>
+<td>Path to image diff folder</td>
+<td><code>${outputFolder}/diff</code></td>
+</tr>
+<tr>
+<td><strong><code>--diffingEngine</code></strong></td>
+<td>What diffing engine to use, currently supported are <code>looks-same</code> and <code>gm</code></td>
+<td><code>looks-same</code></td>
+</tr>
+<tr>
+<td><strong><code>--chromeConcurrency</code></strong></td>
+<td>How many stories to test in paralell when using chrome</td>
+<td><code>4</code></td>
+</tr>
+<tr>
+<td><strong><code>--chromeFlags</code></strong></td>
+<td>Custom chrome flags.</td>
+<td><code>--headless --disable-gpu --hide-scrollbars</code></td>
+</tr>
+<tr>
+<td><strong><code>--chromeLoadTimeout</code></strong></td>
+<td>How many miliseconds loki will wait for the page to load before taking as screnshot.</td>
+<td><code>60000</code></td>
+</tr>
+<tr>
+<td><strong><code>--chromeSelector</code></strong></td>
+<td>CSS selector to the part of the DOM to screenshot. Useful you have decorators that should be excluded.</td>
+<td><code>#root &gt; *</code></td>
+</tr>
+<tr>
+<td><strong><code>--chromeTolerance</code></strong></td>
+<td>How many percent tolerated difference compared to reference image.</td>
+<td><code>2.3</code></td>
+</tr>
+<tr>
+<td><strong><code>--skipStories</code></strong></td>
+<td>Regular expression for stories that should not be tested, it will be tested against a string with the format <code>${kind} ${story}</code>.</td>
+<td><em>None</em></td>
+</tr>
+<tr>
+<td><strong><code>--storiesFilter</code></strong></td>
+<td>Opposite of <code>--skipStories</code>.</td>
+<td><em>None</em></td>
+</tr>
+<tr>
+<td><strong><code>--configurationFilter</code></strong></td>
+<td>Regular expression for targets that should be tested.</td>
+<td><em>None</em></td>
+</tr>
+<tr>
+<td><strong><code>--targetFilter</code></strong></td>
+<td>Regular expression for targets that should be tested.</td>
+<td><em>None</em></td>
+</tr>
+<tr>
+<td><strong><code>--requireReference</code></strong></td>
+<td>Fail stories without reference image, useful for CI.</td>
+<td><em>No</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="loki-update"><code>loki update</code></h2>
+<p>Capture screenshots and update the reference files. </p>
+<p>Takes same arguments as <code>loki test</code>.</p>
+<h2 id="loki-init"><code>loki init</code></h2>
+<pre class="language-"><code>yarn run loki init path/to/storybook -- --force
+</code></pre><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>--config</code></strong></td>
+<td>Path to storybook folder</td>
+<td><code>.storybook</code> &amp; <code>storybook</code></td>
+</tr>
+<tr>
+<td><strong><code>--force</code></strong></td>
+<td>Overwrite loki configuration</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -299,8 +419,12 @@
 
             
                 
+                <a href="configuration.html" class="navigation navigation-prev " aria-label="Previous page: Configuration">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Getting started">
+                
+                <a href="command-line-arguments.html#loki-test" class="navigation navigation-next " aria-label="Next page: loki test">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -311,7 +435,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting started","level":"1.2","depth":1,"path":"getting-started.md","ref":"getting-started.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","theme-gestalt","-theme-default","prism","-highlight","anchorjs","github","styles-sass-fix"],"root":"docs","styles":{"website":"website-1499898931984.css"},"pluginsConfig":{"prism":{},"styles-sass-fix":{},"github":{"url":"https://github.com/oblador/loki/"},"theme-gestalt":{"showLevel":false,"styles":{"website":"styles/website.css"},"logo":"logo.svg","favicon":"favicon.png","excludeDefaultStyles":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/oblador/loki/tree/master"},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Loki","gitbook":"3.2.2"},"file":{"path":"README.md","mtime":"2017-07-12T22:34:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-12T22:35:31.333Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Command line arguments","level":"1.4","depth":1,"next":{"title":"loki test","level":"1.4.1","depth":2,"anchor":"#loki-test","path":"command-line-arguments.md","ref":"command-line-arguments.md#loki-test","articles":[]},"previous":{"title":"Configuration","level":"1.3","depth":1,"path":"configuration.md","ref":"configuration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","theme-gestalt","-theme-default","prism","-highlight","anchorjs","github","styles-sass-fix"],"root":"docs","styles":{"website":"website-1499898931984.css"},"pluginsConfig":{"prism":{},"styles-sass-fix":{},"github":{"url":"https://github.com/oblador/loki/"},"theme-gestalt":{"showLevel":false,"styles":{"website":"styles/website.css"},"logo":"logo.svg","favicon":"favicon.png","excludeDefaultStyles":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/oblador/loki/tree/master"},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Loki","gitbook":"3.2.2"},"file":{"path":"command-line-arguments.md","mtime":"2017-07-12T22:34:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-12T22:35:31.333Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
