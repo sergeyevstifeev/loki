@@ -36,7 +36,7 @@
 
     
         
-        <link rel="stylesheet" href="website-1499898931984.css">
+        <link rel="stylesheet" href="website-1499999906233.css">
         
     
 
@@ -207,6 +207,24 @@
             data-path="command-line-arguments.html">
 
             
+                <a href="command-line-arguments.html#loki-approve">
+            
+                    
+                    loki approve
+            
+                </a>
+            
+
+            
+        </li>
+    
+        
+        <li class="chapter 
+               hide "
+            data-level="1.4.4" 
+            data-path="command-line-arguments.html">
+
+            
                 <a href="command-line-arguments.html#loki-init">
             
                     
@@ -280,15 +298,15 @@ yarn loki init
 <h3 id="2-start-storybook">2. Start Storybook</h3>
 <p>For loki to be able to access your stories you must start the storybook server. Usually this will be done with <code>yarn storybook</code>. You can run React and React Native storybook servers and tests simultaneously as long as they run on different ports. If you test against iOS simulator or Android emulator, these must also be running the storybook app, start them with <code>react-native run-ios</code> and <code>react-native run-android</code> respectively.</p>
 <h3 id="3-create-reference-images">3. Create reference images</h3>
-<p>If it&apos;s your first time using loki you need to create the reference images to test your stories against. This is done with <code>yarn loki update</code> which by default will create a <code>screenshots</code> folder to store them in. These images should be checked into your git repository, optionally stored using <a href="https://git-lfs.github.com" target="_blank"><code>git-lfs</code></a>. </p>
+<p>If it&apos;s your first time using loki you need to create the reference images to test your stories against. This is done with <code>yarn loki update</code> which by default will create a <code>loki</code> folder to store them in. These images should be checked into your git repository, optionally stored using <a href="https://git-lfs.github.com" target="_blank"><code>git-lfs</code></a>. </p>
 <h3 id="4-make-changes">4. Make changes</h3>
 <p>Now it&apos;s time to make some changes to your stories or the underlying components that we want to catch with loki!</p>
 <h3 id="5-run-tests">5. Run tests</h3>
 <p>Run loki again but this time in test mode with <code>yarn loki test</code>. You can test a subset of your configurations with a regular expression in the second argument. <code>yarn loki test laptop</code> will run any configuration containing the word <code>laptop</code>, therefore it&apos;s useful to add keywords such as platform (chrome, ios, android) to your configuration names. </p>
 <h3 id="6-review-changes">6. Review changes</h3>
-<p>Loki will create screenshots of all the tested stories in the <code>screenshots/current</code> folder in addition to a visual diff placed in the <code>diff</code> sub folder. You can also use a specialized diffing tool such as <a href="https://www.kaleidoscopeapp.com" target="_blank">Kaleidoscope</a>. Make sure the changes are correct before you continue. </p>
+<p>Loki will create screenshots of all the tested stories in the <code>loki/current</code> folder in addition to a visual diff placed in the <code>loki/difference</code> folder. You can also use a specialized diffing tool such as <a href="https://www.kaleidoscopeapp.com" target="_blank">Kaleidoscope</a>. Make sure the changes are correct before you continue. </p>
 <h3 id="7-approve-changes">7. Approve changes</h3>
-<p>If the changes were as you inteded it&apos;s time to update the reference files. The test command should output a suggested command to use that will only run the failed tests, which is useful if you have very many stories. Otherwise just use the update command again; <code>yarn loki update</code>. Commit your changes along with the new reference images and repeat.</p>
+<p>If the changes were as you inteded, it&apos;s time to update the reference files. The test command should output a suggested command to use that will only update the failed tests. Otherwise just use the approve command; <code>yarn loki approve</code>. Commit your changes along with the new reference images and repeat.</p>
 
                                 
                                 </section>
@@ -332,7 +350,7 @@ yarn loki init
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting started","level":"1.2","depth":1,"next":{"title":"Configuration","level":"1.3","depth":1,"path":"configuration.md","ref":"configuration.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","theme-gestalt","-theme-default","prism","-highlight","anchorjs","github","styles-sass-fix"],"root":"docs","styles":{"website":"website-1499898931984.css"},"pluginsConfig":{"prism":{},"styles-sass-fix":{},"github":{"url":"https://github.com/oblador/loki/"},"theme-gestalt":{"showLevel":false,"styles":{"website":"styles/website.css"},"logo":"logo.svg","favicon":"favicon.png","excludeDefaultStyles":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/oblador/loki/tree/master"},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Loki","gitbook":"3.2.2"},"file":{"path":"getting-started.md","mtime":"2017-07-12T22:34:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-12T22:35:31.333Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting started","level":"1.2","depth":1,"next":{"title":"Configuration","level":"1.3","depth":1,"path":"configuration.md","ref":"configuration.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","theme-gestalt","-theme-default","prism","-highlight","anchorjs","github","styles-sass-fix"],"root":"docs","styles":{"website":"website-1499999906233.css"},"pluginsConfig":{"prism":{},"styles-sass-fix":{},"github":{"url":"https://github.com/oblador/loki/"},"theme-gestalt":{"showLevel":false,"styles":{"website":"styles/website.css"},"logo":"logo.svg","favicon":"favicon.png","excludeDefaultStyles":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/oblador/loki/tree/master"},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Loki","gitbook":"3.2.2"},"file":{"path":"getting-started.md","mtime":"2017-07-14T02:37:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-14T02:38:25.520Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

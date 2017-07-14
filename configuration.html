@@ -36,7 +36,7 @@
 
     
         
-        <link rel="stylesheet" href="website-1499898931984.css">
+        <link rel="stylesheet" href="website-1499999906233.css">
         
     
 
@@ -207,6 +207,24 @@
             data-path="command-line-arguments.html">
 
             
+                <a href="command-line-arguments.html#loki-approve">
+            
+                    
+                    loki approve
+            
+                </a>
+            
+
+            
+        </li>
+    
+        
+        <li class="chapter 
+               hide "
+            data-level="1.4.4" 
+            data-path="command-line-arguments.html">
+
+            
                 <a href="command-line-arguments.html#loki-init">
             
                     
@@ -290,10 +308,42 @@
 <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="chromeselector"><code>chromeSelector</code></h2>
-<p>Similar to the <code>--chromeSelector</code> CLI argument, this setting is a CSS selector to the part of the page you want screenshots of. This is useful if you have decorators that&apos;s not really part of the component itself. Note that it doesn&apos;t screenshot the DOM element itself but rather the crops the screenshot to those dimensions, so if you have any elements absolutely positioned above they will be included.</p>
+<p>This setting is a CSS selector to the part of the page you want screenshots of. This is useful if you have decorators that&apos;s not really part of the component itself. Note that it doesn&apos;t screenshot the DOM element itself but rather the crops the screenshot to those dimensions, so if you have any elements absolutely positioned above they will be included.</p>
+<h2 id="diffingengine"><code>diffingEngine</code></h2>
+<p>There are two currently available options to choose from when comparing images in loki: </p>
+<h3 id="gm"><code>gm</code></h3>
+<p>Uses the GraphicsMagick library to create diffs, this is generally faster but requires to have the library installed. You can install it with homebrew using <code>brew install graphicsmagick</code>. This is default if available.</p>
+<h3 id="looks-same"><code>looks-same</code></h3>
+<p>A JavaScript only solution that will work out of the box on every machine, however it is slower and will produce a different diff image. </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>gm</code></th>
+<th><code>looks-same</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dependency</strong></td>
+<td><a href="http://www.graphicsmagick.org" target="_blank">GraphicsMagick</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Speed</strong></td>
+<td>&#x1F3C3;Fast</td>
+<td>&#x1F6B6;Slower</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td><img src="gm-diff.png" alt=""></td>
+<td><img src="looks-same-diff.png" alt=""></td>
+</tr>
+</tbody>
+</table>
 <h2 id="skipstories"><code>skipStories</code></h2>
-<p>Similar to the <code>--skipStories</code> CLI argument, this setting is a regular expression matched against the concatenated kind and story name (<code>${kind} ${story}</code>), case insensitive. It&apos;s useful if some story breaks the tests or contains animations as an alternative to comment it out. </p>
-<h2 id="filterstories"><code>filterStories</code></h2>
+<p>This setting is a regular expression matched against the concatenated kind and story name (<code>${kind} ${story}</code>), case insensitive. It&apos;s useful if some story breaks the tests or contains animations as an alternative to comment it out. </p>
+<h2 id="storiesfilter"><code>storiesFilter</code></h2>
 <p>Opposite to <code>skipStories</code>. </p>
 <h2 id="configurations"><code>configurations</code></h2>
 <table>
@@ -319,9 +369,9 @@
 <td>All</td>
 </tr>
 <tr>
-<td><strong><code>filterStories</code></strong></td>
+<td><strong><code>storiesFilter</code></strong></td>
 <td><em>string</em></td>
-<td>Same as <code>loki.filterStories</code>, but applied to only this configuration.</td>
+<td>Same as <code>loki.storiesFilter</code>, but applied to only this configuration.</td>
 <td>All</td>
 </tr>
 <tr>
@@ -417,7 +467,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configuration","level":"1.3","depth":1,"next":{"title":"Command line arguments","level":"1.4","depth":1,"path":"command-line-arguments.md","ref":"command-line-arguments.md","articles":[{"title":"loki test","level":"1.4.1","depth":2,"anchor":"#loki-test","path":"command-line-arguments.md","ref":"command-line-arguments.md#loki-test","articles":[]},{"title":"loki update","level":"1.4.2","depth":2,"anchor":"#loki-update","path":"command-line-arguments.md","ref":"command-line-arguments.md#loki-update","articles":[]},{"title":"loki init","level":"1.4.3","depth":2,"anchor":"#loki-init","path":"command-line-arguments.md","ref":"command-line-arguments.md#loki-init","articles":[]}]},"previous":{"title":"Getting started","level":"1.2","depth":1,"path":"getting-started.md","ref":"getting-started.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","theme-gestalt","-theme-default","prism","-highlight","anchorjs","github","styles-sass-fix"],"root":"docs","styles":{"website":"website-1499898931984.css"},"pluginsConfig":{"prism":{},"styles-sass-fix":{},"github":{"url":"https://github.com/oblador/loki/"},"theme-gestalt":{"showLevel":false,"styles":{"website":"styles/website.css"},"logo":"logo.svg","favicon":"favicon.png","excludeDefaultStyles":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/oblador/loki/tree/master"},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Loki","gitbook":"3.2.2"},"file":{"path":"configuration.md","mtime":"2017-07-12T22:34:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-12T22:35:31.333Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configuration","level":"1.3","depth":1,"next":{"title":"Command line arguments","level":"1.4","depth":1,"path":"command-line-arguments.md","ref":"command-line-arguments.md","articles":[{"title":"loki test","level":"1.4.1","depth":2,"anchor":"#loki-test","path":"command-line-arguments.md","ref":"command-line-arguments.md#loki-test","articles":[]},{"title":"loki update","level":"1.4.2","depth":2,"anchor":"#loki-update","path":"command-line-arguments.md","ref":"command-line-arguments.md#loki-update","articles":[]},{"title":"loki approve","level":"1.4.3","depth":2,"anchor":"#loki-approve","path":"command-line-arguments.md","ref":"command-line-arguments.md#loki-approve","articles":[]},{"title":"loki init","level":"1.4.4","depth":2,"anchor":"#loki-init","path":"command-line-arguments.md","ref":"command-line-arguments.md#loki-init","articles":[]}]},"previous":{"title":"Getting started","level":"1.2","depth":1,"path":"getting-started.md","ref":"getting-started.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","theme-gestalt","-theme-default","prism","-highlight","anchorjs","github","styles-sass-fix"],"root":"docs","styles":{"website":"website-1499999906233.css"},"pluginsConfig":{"prism":{},"styles-sass-fix":{},"github":{"url":"https://github.com/oblador/loki/"},"theme-gestalt":{"showLevel":false,"styles":{"website":"styles/website.css"},"logo":"logo.svg","favicon":"favicon.png","excludeDefaultStyles":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/oblador/loki/tree/master"},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Loki","gitbook":"3.2.2"},"file":{"path":"configuration.md","mtime":"2017-07-14T02:37:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-14T02:38:25.520Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
